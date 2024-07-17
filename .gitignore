@@ -24,5 +24,5 @@ yarn-error.log*
 
 
 # Игнорировать файл с токеном Telegram Bot
-src/utils/telegram.js
+.src/utils/telegram.js
 
