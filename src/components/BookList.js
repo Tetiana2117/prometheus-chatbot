@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import booksData from "../books.json";
 import defaultImage from "../images/default-book-image.png";
 import searchIcon from "../images/icons8-magnifying-glass-16.png";
+import { Fab } from "@mui/material";
+import ChatIcon from "@mui/icons-material/Chat";
+import ChatBot from "./ChatBot";
 import "../styles/BookList.css";
 
 const BookList = () => {
@@ -11,25 +14,24 @@ const BookList = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [sortOption, setSortOption] = useState("");
   const [priceRange, setPriceRange] = useState("all");
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null); // Добавили состояние для ошибки
-  const navigate = useNavigate(); // Хук useNavigate для программной навигации
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const navigate = useNavigate();
+  const [messages] = useState([]);
 
   useEffect(() => {
     try {
       setBooks(booksData.books);
     } catch (err) {
-      setError(err.message); // Устанавливаем сообщение об ошибке
+      console.error("Ошибка загрузки книг:", err);
     }
-    setLoading(false);
   }, []);
 
   const handleGoBack = () => {
-    setSearchTerm(""); // Сбрасываем значение поля поиска
+    setSearchTerm("");
     setMaxPrice("");
     setSortOption("");
-    setPriceRange("");
-    navigate("/book-list"); // Перенаправляем на страницу со списком книг
+    setPriceRange("all");
+    navigate("/chat", { state: { chatState: messages } });
   };
 
   const handleSearchChange = (event) => {
@@ -56,8 +58,8 @@ const BookList = () => {
       if (priceRange === "all") return true;
       const price = parseFloat(book.price);
       if (priceRange === "0-15") return price > 0 && price < 15;
-      if (priceRange === "15-30") return price > 15 && price < 30;
-      if (priceRange === "30+") return price > 30;
+      if (priceRange === "15-30") return price >= 15 && price < 30;
+      if (priceRange === "30+") return price >= 30;
       return true;
     })
     .filter((book) =>
@@ -76,13 +78,7 @@ const BookList = () => {
       return 0;
     });
 
-  if (loading) {
-    return <p className="loading-message">Loading...</p>;
-  }
-
-  if (error) {
-    return <p className="error-message">Error: {error}</p>;
-  }
+  const addToCart = (book) => {};
 
   return (
     <div className="book-list">
@@ -126,7 +122,7 @@ const BookList = () => {
           <option value="title-desc">Title: Z to A</option>
         </select>
         <button className="search-bar-go-back-button" onClick={handleGoBack}>
-          Go back
+          Go to back
         </button>
       </div>
       <div className="books">
@@ -161,6 +157,32 @@ const BookList = () => {
           </div>
         )}
       </div>
+      {/* Кнопка чатбота */}
+      <Fab
+        className="chat-bot-icon"
+        color="primary"
+        aria-label="chatbot"
+        onClick={() => setIsChatOpen(true)}
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          backgroundColor: "#df5f5f",
+          "& .MuiSvgIconRoot": {
+            color: "#ffffff",
+          },
+        }}
+      >
+        <ChatIcon />
+      </Fab>
+      {/* Окно чата */}
+      {isChatOpen && (
+        <ChatBot
+          isOpen={isChatOpen}
+          onClose={() => setIsChatOpen(false)}
+          addToCart={addToCart}
+        />
+      )}
     </div>
   );
 };

@@ -76,26 +76,6 @@
   background-color: #4690b0;
 }
 
-/* @media (min-width: 1200px) {
-  .cart {
-    font-size: 14px;
-    padding: 60px;
-  }
-
-  .cart-summary button {
-    padding: 8px 14px;
-    width: 130px;
-  }
-
-  .btn-back-to-books {
-    padding: 8px 6px;
-    font-size: 12px;
-    width: 108px;
-    height: 14px;
-    text-align: center;
-  }
-} */
-
 @media (min-width: 768px) and (max-width: 1199px) {
   .cart {
     font-size: 15px;
@@ -111,7 +91,6 @@
     padding: 8px 6px;
     font-size: 12px;
     width: 108px;
-    /* height: 14px; */
     text-align: center;
   }
 }

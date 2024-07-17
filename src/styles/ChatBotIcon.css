@@ -1,0 +1,21 @@
+.chat-bot-icon .MuiSvgIcon-root {
+  color: #df5f5f;
+}
+
+.chat-bot-icon {
+  position: fixed;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #df5f5f;
+  color: #df5f5f;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chat-bot-icon:hover {
+  background-color: #0056b3;
+}

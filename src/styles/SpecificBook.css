@@ -281,6 +281,14 @@
   cursor: not-allowed;
 }
 
+.btn-back-to-chat {
+  background-color: #28a745;
+}
+
+.btn-back-to-chat:hover {
+  background-color: #218838;
+}
+
 @media (max-width: 767px) {
   .book-container {
     margin: 40px;
@@ -294,12 +302,6 @@
   .book-details {
     flex-direction: column;
   }
-
-  /* input[type="number"] {
-    -moz-appearance: number-input;
-    -webkit-appearance: number-input;
-    appearance: number-input;
-  } */
 
   .book-description,
   .add-to-cart-button,
@@ -357,8 +359,6 @@
     width: auto;
     height: 200px;
     object-fit: contain;
-    /* width: 120px;
-    height: 180px; */
   }
 
   .price-info label {
@@ -442,8 +442,6 @@
     width: auto;
     height: 180px;
     object-fit: contain;
-    /* width: 100px;
-    height: 160px; */
   }
 
   .price-info label {

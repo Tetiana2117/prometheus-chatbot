@@ -26,7 +26,6 @@
   top: 60px;
   left: 0;
   right: 0;
-  /* flex: 1; */
   background-color: white;
   padding: 6px 10px;
   border-radius: 10px;
@@ -100,7 +99,7 @@
 }
 
 .book-item {
-  width: calc(25% - 30px); /* 25% мінус gap */
+  width: calc(25% - 30px);
   max-width: 200px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -228,8 +227,6 @@
   background-color: #df5f5f;
 }
 
-/* Media queries */
-
 @media (max-width: 767px) {
   .search-bar {
     flex-direction: column;
@@ -352,4 +349,49 @@
   .error-message {
     max-width: 80%;
   }
+}
+
+.book-list-container {
+  width: 300px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  height: 40px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.chat-header h3 {
+  margin: 0;
+  font-size: 14px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  outline: none;
 }

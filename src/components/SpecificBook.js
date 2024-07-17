@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import booksData from "../books.json";
 import defaultImage from "../images/default-book-image.png";
 import "../styles/SpecificBook.css";
@@ -7,14 +7,15 @@ import "../styles/SpecificBook.css";
 const SpecificBook = ({ addToCart }) => {
   const { id } = useParams();
   const book = booksData.books.find((b) => b.id === parseInt(id, 10));
-
+  const location = useLocation();
+  const chatState = location.state?.chatState || [];
   const [quantity, setQuantity] = useState(1);
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [showCartMessage, setShowCartMessage] = useState(false);
   const navigate = useNavigate();
 
   if (!book) {
-    return <div>Книга не найдена</div>;
+    return <div>No books available</div>;
   }
 
   const handleQuantityChange = (event) => {
@@ -79,6 +80,11 @@ const SpecificBook = ({ addToCart }) => {
     navigate("/book-list");
   };
 
+  const goBackToChat = () => {
+    setShowCartMessage(false);
+    navigate("/chat", { state: { chatState } });
+  };
+
   return (
     <div className="book-container">
       {showCartMessage && (
@@ -98,6 +104,9 @@ const SpecificBook = ({ addToCart }) => {
               </button>
               <button className="btn-back" onClick={goBackToBooks}>
                 Go back to books
+              </button>
+              <button className="btn-back" onClick={goBackToChat}>
+                Go back to chat
               </button>
             </div>
           </div>
@@ -123,7 +132,7 @@ const SpecificBook = ({ addToCart }) => {
             <strong>Book tags:</strong> {book.tags.join(", ")}
           </p>
           <p>
-            <strong>Book description:</strong>
+            <strong>Book description:</strong>{" "}
             {isDescriptionExpanded
               ? book.description
               : `${book.description.slice(0, 100)}...`}
@@ -150,26 +159,16 @@ const SpecificBook = ({ addToCart }) => {
                   max={book.amount}
                   value={quantity}
                   onChange={handleQuantityChange}
+                  onKeyDown={handleKeyDown}
                 />
                 <button
                   onClick={incrementQuantity}
                   disabled={quantity >= book.amount}
-                  onKeyDown={handleKeyDown}
                 >
                   +
                 </button>
               </div>
 
-              {/* <label htmlFor="quantity">Count: </label>
-              <input
-                type="number"
-                id="quantity"
-                min="1"
-                max={book.amount}
-                value={quantity}
-                onChange={handleQuantityChange}
-                onKeyDown={handleKeyDown}
-              /> */}
               <p>
                 <strong>Total price:</strong> ${totalPrice}
               </p>
@@ -179,6 +178,9 @@ const SpecificBook = ({ addToCart }) => {
               <button className="back-button" onClick={goBackToBooks}>
                 Go back to books
               </button>
+              <button className="back-button" onClick={goBackToChat}>
+                Go back to chat
+              </button>
             </>
           ) : (
             <div className="out-of-stock">
@@ -187,6 +189,9 @@ const SpecificBook = ({ addToCart }) => {
               </button>
               <button className="btn-out-back" onClick={goBackToBooks}>
                 Go back to books
+              </button>
+              <button className="btn-out-back" onClick={goBackToChat}>
+                Go back to chat
               </button>
             </div>
           )}

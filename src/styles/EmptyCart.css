@@ -41,27 +41,6 @@
   background-color: #4690b0;
 }
 
-/* @media (min-width: 1200px) {
-  .empty-cart {
-    font-size: 16px;
-    max-width: 400px;
-  }
-
-  .empty-cart-image {
-    width: 350px;
-    height: 350px;
-  }
-
-  .empty-cart-text {
-    font-size: 16px;
-  }
-
-  .go-back-button {
-    padding: 8px 4px;
-    width: 130px;
-  }
-} */
-
 @media (min-width: 768px) and (max-width: 1199px) {
   .empty-cart {
     font-size: 15px;

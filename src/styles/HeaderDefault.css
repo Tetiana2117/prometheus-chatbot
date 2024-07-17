@@ -93,31 +93,6 @@
   background-color: #c35353;
 }
 
-/* @media (min-width: 1200px) {
-  .header-content h2 {
-    font-size: 12px;
-  }
-
-  .cart-icon {
-    font-size: 28px;
-  }
-
-  .user-info {
-    font-size: 12px;
-  }
-
-  .username {
-    font-size: 12px;
-    margin-left: 20px;
-  }
-
-  .sign-out-button {
-    padding: 4px 6px;
-    min-width: 110px;
-  }
-} */
-
-/* Середні екрани (від 768px до 1199px) */
 @media (min-width: 768px) and (max-width: 1199px) {
   .header-content h2 {
     font-size: 12px;
@@ -143,7 +118,6 @@
   }
 }
 
-/* Маленькі екрани (меньше 768px) */
 @media (max-width: 767px) {
   .header-content {
     flex-direction: column;

@@ -1,10 +1,10 @@
-// App.js
-import React from "react";
+import React, { useState } from "react";
 import {
   Routes,
   Route,
   Navigate,
   useLocation,
+  Link,
   HashRouter,
 } from "react-router-dom";
 import SignIn from "./components/SignIn";
@@ -16,17 +16,20 @@ import HeaderLogin from "./components/HeaderLogin";
 import HeaderDefault from "./components/HeaderDefault";
 import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
+import ChatBot from "./components/ChatBot";
 import "./App.css";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  const [username, setUsername] = React.useState("");
-  const [cartItems, setCartItems] = React.useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
+  const [cartItems, setCartItems] = useState([]);
+  const [chatState, setChatState] = useState([]); // Добавляем состояние чата
 
   const handleSignOut = () => {
     setIsLoggedIn(false);
     setUsername("");
     setCartItems([]);
+    setChatState([]); // Очищаем состояние чата при выходе
   };
 
   const addToCart = (book) => {
@@ -67,7 +70,16 @@ const App = () => {
             path="/book-list"
             element={
               isLoggedIn ? (
-                <BookList addToCart={addToCart} />
+                <>
+                  <BookList addToCart={addToCart} />
+                  <Link
+                    to="/chat"
+                    className="back-to-chat-button"
+                    state={{ chatState }}
+                  >
+                    Вернуться в чат
+                  </Link>
+                </>
               ) : (
                 <Navigate to="/" />
               )
@@ -92,6 +104,17 @@ const App = () => {
                   setCartItems={setCartItems}
                   userName={username}
                 />
+              ) : (
+                <Navigate to="/" />
+              )
+            }
+          />
+          <Route path="/chat" component={ChatBot} />
+          <Route
+            path="/chat"
+            element={
+              isLoggedIn ? (
+                <ChatBot chatState={chatState} setChatState={setChatState} />
               ) : (
                 <Navigate to="/" />
               )
