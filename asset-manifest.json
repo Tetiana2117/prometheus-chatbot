@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/prometheus-chatbot/static/css/main.e03ee31b.chunk.css",
+    "main.css": "/prometheus-chatbot/static/css/main.503f9488.chunk.css",
     "main.js": "/prometheus-chatbot/static/js/main.fb27ccfd.chunk.js",
     "main.js.map": "/prometheus-chatbot/static/js/main.fb27ccfd.chunk.js.map",
     "runtime~main.js": "/prometheus-chatbot/static/js/runtime~main.7de38692.js",
     "runtime~main.js.map": "/prometheus-chatbot/static/js/runtime~main.7de38692.js.map",
-    "static/js/2.18c7c982.chunk.js": "/prometheus-chatbot/static/js/2.18c7c982.chunk.js",
-    "static/js/2.18c7c982.chunk.js.map": "/prometheus-chatbot/static/js/2.18c7c982.chunk.js.map",
+    "static/js/2.c5b85049.chunk.js": "/prometheus-chatbot/static/js/2.c5b85049.chunk.js",
+    "static/js/2.c5b85049.chunk.js.map": "/prometheus-chatbot/static/js/2.c5b85049.chunk.js.map",
     "index.html": "/prometheus-chatbot/index.html",
-    "precache-manifest.a14ced2ffa8bfcda4ce99cc87bb8bed0.js": "/prometheus-chatbot/precache-manifest.a14ced2ffa8bfcda4ce99cc87bb8bed0.js",
+    "precache-manifest.219a62a97b2b5d1c2f8d6e10bbc8a112.js": "/prometheus-chatbot/precache-manifest.219a62a97b2b5d1c2f8d6e10bbc8a112.js",
     "service-worker.js": "/prometheus-chatbot/service-worker.js",
-    "static/css/main.e03ee31b.chunk.css.map": "/prometheus-chatbot/static/css/main.e03ee31b.chunk.css.map",
+    "static/css/main.503f9488.chunk.css.map": "/prometheus-chatbot/static/css/main.503f9488.chunk.css.map",
     "static/media/avatar.png": "/prometheus-chatbot/static/media/avatar.05667873.png",
     "static/media/default-book-image.png": "/prometheus-chatbot/static/media/default-book-image.4d7741df.png",
     "static/media/empty-cart.png": "/prometheus-chatbot/static/media/empty-cart.7a269d75.png"

@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c8752f75149b165da49d76ef2ccdbe93",
+    "revision": "b14c7c4093f4252ae52027c8aaeaec00",
     "url": "/prometheus-chatbot/index.html"
   },
   {
-    "revision": "acf610e64379ca2863a1",
-    "url": "/prometheus-chatbot/static/css/main.e03ee31b.chunk.css"
+    "revision": "3711c6631180241a35ba",
+    "url": "/prometheus-chatbot/static/css/main.503f9488.chunk.css"
   },
   {
-    "revision": "b9d101d7176f29eeae70",
-    "url": "/prometheus-chatbot/static/js/2.18c7c982.chunk.js"
+    "revision": "033f6b7104d84235fc3e",
+    "url": "/prometheus-chatbot/static/js/2.c5b85049.chunk.js"
   },
   {
-    "revision": "acf610e64379ca2863a1",
+    "revision": "3711c6631180241a35ba",
     "url": "/prometheus-chatbot/static/js/main.fb27ccfd.chunk.js"
   },
   {

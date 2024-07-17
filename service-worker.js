@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/prometheus-chatbot/precache-manifest.a14ced2ffa8bfcda4ce99cc87bb8bed0.js"
+  "/prometheus-chatbot/precache-manifest.219a62a97b2b5d1c2f8d6e10bbc8a112.js"
 );
 
 self.addEventListener('message', (event) => {
